@@ -22,7 +22,7 @@ function createWindow() {
     height: 760,
     minWidth: 900,
     minHeight: 620,
-    title: "Paradiddle Downloader",
+    title: "Paradiddle Song Downloader",
     backgroundColor: "#101217",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),

@@ -43,13 +43,13 @@ jobs:
       - name: Zip Windows app
         shell: pwsh
         run: |
-          Compress-Archive -Path "dist/Paradiddle Downloader-win32-x64/*" -DestinationPath "Paradiddle-Downloader-win32-x64.zip" -Force
+          Compress-Archive -Path "dist/Paradiddle Song Downloader-win32-x64/*" -DestinationPath "Paradiddle-Song-Downloader-win32-x64.zip" -Force
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Paradiddle-Downloader-win32-x64
-          path: Paradiddle-Downloader-win32-x64.zip
+          name: Paradiddle-Song-Downloader-win32-x64
+          path: Paradiddle-Song-Downloader-win32-x64.zip
 
   build-mac:
     name: macOS ${{ matrix.arch }}
@@ -82,13 +82,13 @@ jobs:
 
       - name: Zip macOS app
         run: |
-          ditto -c -k --sequesterRsrc --keepParent "dist/Paradiddle Downloader-darwin-${{ matrix.arch }}/Paradiddle Downloader.app" "Paradiddle-Downloader-mac-${{ matrix.arch }}.zip"
+          ditto -c -k --sequesterRsrc --keepParent "dist/Paradiddle Song Downloader-darwin-${{ matrix.arch }}/Paradiddle Song Downloader.app" "Paradiddle-Song-Downloader-mac-${{ matrix.arch }}.zip"
 
       - name: Upload macOS artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Paradiddle-Downloader-mac-${{ matrix.arch }}
-          path: Paradiddle-Downloader-mac-${{ matrix.arch }}.zip
+          name: Paradiddle-Song-Downloader-mac-${{ matrix.arch }}
+          path: Paradiddle-Song-Downloader-mac-${{ matrix.arch }}.zip
 
   publish-release:
     name: Publish GitHub Release

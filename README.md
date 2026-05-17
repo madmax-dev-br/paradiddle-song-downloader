@@ -1,6 +1,6 @@
-# Paradiddle Downloader
+# Paradiddle Song Downloader
 
-Electron app for searching [ParaDB](https://paradb.net/) and installing Paradiddle maps unzipped.
+Electron app for searching [ParaDB](https://paradb.net/) and installing Paradiddle song maps unzipped.
 
 ## Run
 
