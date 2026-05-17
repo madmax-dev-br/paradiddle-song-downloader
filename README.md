@@ -1,6 +1,12 @@
 # Paradiddle Song Downloader
 
+[![Build Release](https://github.com/madmax-dev-br/paradiddle-song-downloader/actions/workflows/release.yml/badge.svg)](https://github.com/madmax-dev-br/paradiddle-song-downloader/actions/workflows/release.yml)
+
 Electron app for searching [ParaDB](https://paradb.net/) and installing Paradiddle song maps unzipped.
+
+## Print
+
+![Paradiddle Song Downloader app screenshot](docs/app-screenshot.png)
 
 ## Run
 
@@ -32,17 +38,5 @@ npm run package:win
 npm run package:mac:x64
 npm run package:mac:arm64
 ```
-
-## GitHub releases
-
-The release workflow builds Windows x64 and macOS x64/arm64 apps and uploads zipped assets to a GitHub Release.
-
-Trigger options:
-
-- Push a version tag, for example `v0.1.0`.
-- Push to the `release` branch.
-- Run the workflow manually with a tag name.
-
-Windows and macOS builds are unsigned.
 
 The app queries ParaDB on demand through `GET /api/maps` and downloads individual map zips through `GET /api/maps/:id/download`.
