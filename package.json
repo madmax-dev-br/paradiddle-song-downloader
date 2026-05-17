@@ -1,14 +1,14 @@
 {
-  "name": "paradiddle-downloader",
+  "name": "paradiddle-song-downloader",
   "version": "0.1.0",
-  "description": "Electron app for searching ParaDB and installing Paradiddle maps locally or to a Meta Quest.",
+  "description": "Electron app for searching ParaDB and installing Paradiddle song maps locally or to a Meta Quest.",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer.js",
-    "package:win": "electron-packager . \"Paradiddle Downloader\" --platform=win32 --arch=x64 --out=dist --overwrite --asar --prune=true",
-    "package:mac:x64": "electron-packager . \"Paradiddle Downloader\" --platform=darwin --arch=x64 --out=dist --overwrite --asar --prune=true",
-    "package:mac:arm64": "electron-packager . \"Paradiddle Downloader\" --platform=darwin --arch=arm64 --out=dist --overwrite --asar --prune=true"
+    "package:win": "electron-packager . \"Paradiddle Song Downloader\" --platform=win32 --arch=x64 --out=dist --overwrite --asar --prune=true",
+    "package:mac:x64": "electron-packager . \"Paradiddle Song Downloader\" --platform=darwin --arch=x64 --out=dist --overwrite --asar --prune=true",
+    "package:mac:arm64": "electron-packager . \"Paradiddle Song Downloader\" --platform=darwin --arch=arm64 --out=dist --overwrite --asar --prune=true"
   },
   "keywords": [
     "electron",
