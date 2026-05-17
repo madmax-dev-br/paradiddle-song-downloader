@@ -1,0 +1,28 @@
+{
+  "name": "paradiddle-downloader",
+  "version": "0.1.0",
+  "description": "Electron app for searching ParaDB and installing Paradiddle maps locally or to a Meta Quest.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer.js",
+    "package:win": "electron-packager . \"Paradiddle Downloader\" --platform=win32 --arch=x64 --out=dist --overwrite --asar --prune=true",
+    "package:mac:x64": "electron-packager . \"Paradiddle Downloader\" --platform=darwin --arch=x64 --out=dist --overwrite --asar --prune=true",
+    "package:mac:arm64": "electron-packager . \"Paradiddle Downloader\" --platform=darwin --arch=arm64 --out=dist --overwrite --asar --prune=true"
+  },
+  "keywords": [
+    "electron",
+    "paradiddle",
+    "paradb",
+    "quest"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "extract-zip": "^2.0.1"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.0.0",
+    "electron": "^42.1.0"
+  }
+}

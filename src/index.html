@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paradiddle Downloader</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">P</span>
+          <div>
+            <h1>Paradiddle Downloader</h1>
+            <p>Search ParaDB, install unzipped maps.</p>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="panel-title">
+            <h2>Install Target</h2>
+            <button class="icon-button" id="refreshQuest" type="button" title="Refresh Quest status">↻</button>
+          </div>
+
+          <div class="segmented" role="group" aria-label="Install target">
+            <button class="segment active" data-mode="local" type="button">PC</button>
+            <button class="segment" data-mode="questFolder" type="button">Quest Folder</button>
+            <button class="segment" data-mode="adb" type="button">ADB</button>
+          </div>
+
+          <div class="target-block" data-target-panel="local">
+            <label for="localDir">PC Songs folder</label>
+            <div class="path-row">
+              <input id="localDir" type="text" readonly />
+              <button id="chooseLocal" type="button">Choose</button>
+            </div>
+          </div>
+
+          <div class="target-block hidden" data-target-panel="questFolder">
+            <label for="questDir">Mounted Quest Songs folder</label>
+            <div class="path-row">
+              <input id="questDir" type="text" readonly placeholder="Quest/Internal Shared Storage/Paradiddle/Songs" />
+              <button id="chooseQuest" type="button">Choose</button>
+            </div>
+            <div class="candidate-list" id="questCandidates"></div>
+          </div>
+
+          <div class="target-block hidden" data-target-panel="adb">
+            <div class="status-line" id="adbStatus">Checking adb...</div>
+            <p class="hint">ADB pushes to /sdcard/Paradiddle/Songs. Enable USB debugging and authorize the headset.</p>
+          </div>
+
+          <div class="scan-row">
+            <label class="check-row">
+              <input id="checkInstalled" type="checkbox" />
+              <span>Mark installed maps</span>
+            </label>
+            <button id="scanLibrary" type="button">Scan</button>
+          </div>
+          <div class="scan-status" id="installedSummary">Not scanned.</div>
+        </section>
+
+        <section class="panel">
+          <h2>Current Job</h2>
+          <div class="job-card" id="jobCard">
+            <span class="quiet">No active install.</span>
+          </div>
+        </section>
+      </aside>
+
+      <section class="content">
+        <header class="toolbar">
+          <form class="search-form" id="searchForm">
+            <input id="searchInput" type="search" placeholder="Search song, artist, mapper, ParaDB link, or map id" autocomplete="off" />
+          </form>
+          <div class="search-status" id="searchStatus" aria-live="polite">
+            <span class="spinner"></span>
+            <span>Searching</span>
+          </div>
+          <button class="ghost-button" id="loadLatest" type="button">Latest</button>
+        </header>
+
+        <section class="results-shell">
+          <div class="results-header">
+            <div>
+              <h2 id="resultTitle">Latest Maps</h2>
+              <p id="resultMeta">Loading ParaDB maps...</p>
+            </div>
+            <button id="loadMore" type="button">Load More</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Song</th>
+                  <th>Artist</th>
+                  <th>Mapper</th>
+                  <th>Diff</th>
+                  <th>Downloads</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="resultsBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
